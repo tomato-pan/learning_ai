@@ -28,5 +28,9 @@ b = array([1,2.3,4/2,"sss",(1,2,3)],dtype=object)
 print(b*2)
 # 转换类型
 c = array([-1,2,-3,4])
-print(asarray(c,dtype=uint8) )
+print(asarray(c,dtype=uint8) ,c.dtype)
 print(c)
+aa = c.view(uint8)
+print(aa)
+c[0]=2
+print(aa)
