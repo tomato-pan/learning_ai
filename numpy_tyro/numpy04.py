@@ -19,4 +19,4 @@ print(a.mean(),average(a))
 c = array([1,1.2])
 print(c.std())
 # 限制数值在某个范围
-
+print(b.clip(2,6))
