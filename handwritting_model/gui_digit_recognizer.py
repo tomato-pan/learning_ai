@@ -10,6 +10,7 @@ model = load_model('mnist.h5')
 def predict_digit(img):
     #resize image to 28x28 pixels
     img = img.resize((28,28))
+    # img = 1 - img
     #convert rgb to grayscale
     img = img.convert('L')
     img = np.array(img)
