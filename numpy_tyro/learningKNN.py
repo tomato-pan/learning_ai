@@ -10,7 +10,7 @@ from sklearn import neighbors, datasets
 n_neighbors = 3
 
 # 导入一些要玩的数据
-# iris = datasets.load_iris()
+# iris = datasets.load_iris()sklearn
 # X = iris.data[:, :2]  # 我们只采用前两个feature. 我们可以使用二维数据集避免这个丑陋的切片
 # y = iris.target
 
