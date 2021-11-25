@@ -47,6 +47,7 @@ def laplacian(img):
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
+
 def canny_xy(img):
     print(img.shape)
     r = cv2.Canny(img, 210, 220)
@@ -54,6 +55,7 @@ def canny_xy(img):
     cv2.imshow("result", r)
     cv2.waitKey()
     cv2.destroyAllWindows()
+
 
 if __name__ == '__main__':
     img = cv2.imread("/Users/panjwangsu.com/Desktop/panj_python/learning_ai/123.jpeg", cv2.IMREAD_GRAYSCALE)
