@@ -25,11 +25,21 @@ def pyup(img):
 
 
 def lap_tri(img):
-    # 拉普拉斯金字塔
-    pass
+    # 拉普拉斯金字塔 & 适用于正方形图像
+    od = cv2.pyrDown(img)
+    odu = cv2.pyrUp(od)
+    lapPyr = img - odu
+    o1 = od
+    o1d = cv2.pyrDown(o1)
+    o1du = cv2.pyrUp(o1d)
+    lapPyr1 = o1 - o1du
+    cv2.imshow("lapPyr", lapPyr)
+    cv2.imshow("lapPry1", lapPyr1)
+    cv2.waitKey()
+    cv2.destroyAllWindows()
 
 
 if __name__ == '__main__':
-    img = cv2.imread("/Users/panjwangsu.com/Desktop/panj_python/learning_ai/123.jpeg")
+    img = cv2.imread("/Users/panjwangsu.com/Desktop/panj_python/learning_ai/124.jpeg")
 
-    pyup(img)
+    lap_tri(img)
