@@ -1,13 +1,16 @@
 # numpy操作图像像素点
-import cv2,time
+import cv2, time
 import numpy as np
+
 
 def count_time(func):
     def wrap(img):
         t1 = time.time()
         func(img)
         print(time.time() - t1)
+
     return wrap
+
 
 @count_time
 def access_pixels(img):
@@ -25,6 +28,7 @@ def access_pixels(img):
     # cv2.waitKey(0)
     # cv2.destroyAllWindows()
 
+
 @count_time
 def cv_inverse(img):
     dst = cv2.bitwise_not(img)
@@ -33,9 +37,31 @@ def cv_inverse(img):
     # cv2.destroyAllWindows()
 
 
+def create_image():  # numpy 生成纯色图片
+    img = np.zeros([400, 400, 3], np.int8)
+    img[:, :, 0] = np.ones([400, 400]) * 215  # 修改第一通道的值
+    img[:, :, 2] = np.ones([400, 400]) * 255  # 修改第一通道的值
+    cv2.imshow("image", img)
+
+
+def color_space_demo(image):
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    cv2.imshow("gray", gray)
+    hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+    cv2.imshow("hsv", hsv)
+    yuv = cv2.cvtColor(image, cv2.COLOR_BGR2YUV)
+    cv2.imshow("yuv", yuv)
+    Ycrcb = cv2.cvtColor(image, cv2.COLOR_BGR2YCrCb)
+    cv2.imshow("ycrcb", Ycrcb)
+    lower_red = np.array([0, 43, 46])
+    upper_red = np.array([77, 255, 255])
+    mask = cv2.inRange(hsv, lower_red, upper_red)
+    cv2.imshow('hsvred', mask)
+
+
 if __name__ == '__main__':
     img = cv2.imread("/Users/panjwangsu.com/Desktop/panj_python/learning_ai/124.jpeg")
-    # access_pixels(img)
-    cv_inverse(img)
+    color_space_demo(img)
+    # create_image()
     cv2.waitKey(0)
     cv2.destroyAllWindows()
