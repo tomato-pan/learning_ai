@@ -53,11 +53,13 @@ def color_space_demo(image):
     cv2.imshow("yuv", yuv)
     Ycrcb = cv2.cvtColor(image, cv2.COLOR_BGR2YCrCb)
     cv2.imshow("ycrcb", Ycrcb)
-    lower_red = np.array([0, 43, 46])
+    lower_red = np.array([10, 43, 46])
     upper_red = np.array([77, 255, 255])
     mask = cv2.inRange(hsv, lower_red, upper_red)
+    dst = cv2.bitwise_and(image, image, mask=mask)  # 除去mask部分的图像进行与运算。得到绿色
     cv2.imshow('hsvred', mask)
-
+    cv2.imshow('dst', dst)
+# 通道分离 b, g, r = cv2.split(src)#分离
 
 if __name__ == '__main__':
     img = cv2.imread("/Users/panjwangsu.com/Desktop/panj_python/learning_ai/124.jpeg")
