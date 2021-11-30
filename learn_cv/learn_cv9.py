@@ -59,6 +59,8 @@ def color_space_demo(image):
     dst = cv2.bitwise_and(image, image, mask=mask)  # 除去mask部分的图像进行与运算。得到绿色
     cv2.imshow('hsvred', mask)
     cv2.imshow('dst', dst)
+
+
 # 通道分离 b, g, r = cv2.split(src)#分离
 
 if __name__ == '__main__':
