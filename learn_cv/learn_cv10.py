@@ -29,6 +29,8 @@ if __name__ == '__main__':
     m2 = cv2.imread("/Users/panjwangsu.com/Desktop/panj_python/learning_ai/123.jpeg")
     img1 = cv2.resize(m1, (400, 400))
     img2 = cv2.resize(m2, (400, 400))
+    print('src1均值：', cv2.mean(img1))
+    print('src2均值：', cv2.mean(img2))
     add_demo(img1, img2)
     substract_demo(img1, img2)
     divide_demo(img1, img2)
