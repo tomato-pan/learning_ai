@@ -24,6 +24,22 @@ def multiply_demo(img1, img2):
     cv2.imshow("multiply", dst)
 
 
+def logic_demo(img1, img2):
+    dst = cv2.bitwise_and(img1, img2)
+    dst1 = cv2.bitwise_or(img1, img2)
+    no = cv2.bitwise_not(img1)
+    cv2.imshow("and", dst)
+    cv2.imshow("or", dst1)
+    cv2.imshow("no", no)
+
+
+def brightness_demo(img, c, b):
+    h, w, ch = img.shape
+    blank = np.zeros([h, w, ch], img.dtype)
+    dst = cv2.addWeighted(img, c, blank, 1 - c, b)
+    cv2.imshow("brightness", dst)
+
+
 if __name__ == '__main__':
     m1 = cv2.imread("/Users/panjwangsu.com/Desktop/panj_python/learning_ai/124.jpeg")
     m2 = cv2.imread("/Users/panjwangsu.com/Desktop/panj_python/learning_ai/123.jpeg")
@@ -35,5 +51,7 @@ if __name__ == '__main__':
     substract_demo(img1, img2)
     divide_demo(img1, img2)
     multiply_demo(img1, img2)
+    logic_demo(img1, img2)
+    brightness_demo(m1, 1, 0)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
