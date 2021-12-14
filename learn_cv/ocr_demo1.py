@@ -1,7 +1,7 @@
 import pytesseract as tess
 import cv2
-print(tess.get_tesseract_version())
-print(tess.get_languages())
+# print(tess.get_tesseract_version())
+# print(tess.get_languages())
 image = cv2.imread("/Users/panjwangsu.com/Desktop/panj_python/learning_ai/125.png")
 image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 text = tess.image_to_string(image_rgb, lang="chi_sim")
